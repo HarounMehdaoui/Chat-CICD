@@ -7,10 +7,10 @@ on:
     branches: [ main, new-main ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Install src code on VM
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -21,5 +21,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run build
-        run: npm run build --if-present
+      - name: Run test
+        run: npm run test --if-present
